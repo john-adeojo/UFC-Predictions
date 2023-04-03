@@ -1,7 +1,18 @@
 import time
+import os
+import sys
+
+notebook_dir = os.path.dirname(os.path.abspath("__file__"))
+project_dir = os.path.dirname(notebook_dir)
+
+if project_dir not in sys.path:
+    sys.path.append(project_dir)
+
+
 from src.createdata.preprocess import Preprocessor
 from src.createdata.scrape_fight_data import FightDataScraper
 from src.createdata.scrape_fighter_details import FighterDetailsScraper
+
 
 time_start = time.time()
 print("Creating fight data \n")
